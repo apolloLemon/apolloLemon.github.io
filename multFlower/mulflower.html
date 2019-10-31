@@ -1,4 +1,10 @@
-<canvas id="C" width='300' height='300' style="border:1px solid #000000;"></canvas>
+<canvas id="C" width='600' height='600' style="border:1px solid #000000;"></canvas>
+
+<p>
+	Graph G={V,E}  <br>
+	V={0 to 399} around the circle, <br>
+	E={(i , 2i%|V|) (i in V)}
+</p>
 
 <script type="text/javascript">
     /**
@@ -603,11 +609,11 @@ window.onload = function(){
         
         var TABLE = 2;
 
-        var N = 200;
+        var N = 400;
         var points = [];
         for(z=0;z<N;z++){
         	//console.log(z);
-        	points[z] = Roots(N)[z].mul(140).round();
+        	points[z] = Roots(N)[z].mul(280).round();
         	//console.log(points[z].arg());
         }
         //console.log(points);
@@ -615,11 +621,11 @@ window.onload = function(){
         console.log(points);
 
         for(es=1;es<N;es++){
-            ctx.fillRect(points[es].re+150, points[es].im+150,1,1);
+            ctx.fillRect(points[es].re+300, points[es].im+300,1,1);
             ctx.beginPath()
-            ctx.moveTo(points[es].re+150, points[es].im+150);
+            ctx.moveTo(points[es].re+300, points[es].im+300);
             //console.log(es+"x"+TABLE+"="+(es*TABLE)%N);
-            ctx.lineTo(points[(es*TABLE)%N].re+150,points[(es*TABLE)%N].im+150);
+            ctx.lineTo(points[(es*TABLE)%N].re+300,points[(es*TABLE)%N].im+300);
             ctx.stroke();
 
         console.log(points[es].re+" "+points[es].im+" "+points[es].arg());
