@@ -7,6 +7,22 @@
 </p>
 
 <script type="text/javascript">
+/*
+  The first 500 or so lines is a cut down version of Complex.js
+  (I'll probably write my one Complex object later)
+  Normally node is required to load Complex.js.. normally
+
+
+  Below this, my functions:
+  -laps(n) gives and array of length n following the patern:
+  {0,2,-2,4,-4,6,-6}.
+  -roots give an array of Complex roots of 1, roots(n) gives the set S, |S|=n of 1^(1/n) using l from laps(n)
+    s in S => s=e^(liPi/n)
+  -ComplexSort is just rules for js's sort(arr, func), compairing complex argument alone
+  -Then .onload() generates a set of Complex Roots of 1, sorts them so they're in order around the circle, draws them on the canvas, and then draws lines between S[i] and S[ji%n]
+  
+*/
+
     /**
  * @license Complex.js v2.0.11 11/02/2016
  *
@@ -16,64 +32,6 @@
 (function(root) {
 
   'use strict';
-
-  var cosh = function(x) {
-    return (Math.exp(x) + Math.exp(-x)) * 0.5;
-  };
-
-  var sinh = function(x) {
-    return (Math.exp(x) - Math.exp(-x)) * 0.5;
-  };
-
-  /**
-   * Calculates cos(x) - 1 using Taylor series if x is small.
-   *
-   * @param {number} x
-   * @returns {number} cos(x) - 1
-   */
-
-  var cosm1 = function(x) {
-    var limit = Math.PI/4;
-    if (x < -limit || x > limit) {
-      return (Math.cos(x) - 1.0);
-    }
-
-    var xx = x * x;
-    return xx *
-      (-0.5 + xx *
-        (1/24 + xx *
-          (-1/720 + xx *
-            (1/40320 + xx *
-              (-1/3628800 + xx *
-                (1/4790014600 + xx *
-                  (-1/87178291200 + xx *
-                    (1/20922789888000)
-                  )
-                )
-              )
-            )
-          )
-        )
-      )
-  };
-
-  var hypot = function(x, y) {
-
-    var a = Math.abs(x);
-    var b = Math.abs(y);
-
-    if (a < 3000 && b < 3000) {
-      return Math.sqrt(a * a + b * b);
-    }
-
-    if (a < b) {
-      a = b;
-      b = x / y;
-    } else {
-      b = y / x;
-    }
-    return a * Math.sqrt(1 + b * b);
-  };
 
   var parser_exit = function() {
     throw SyntaxError('Invalid Param');
