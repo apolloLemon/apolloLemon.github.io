@@ -584,6 +584,14 @@ window.onload = function(){
             ctx.moveTo(points[es].re+300, points[es].im+300);
             //console.log(es+"x"+TABLE+"="+(es*TABLE)%N);
             ctx.lineTo(points[(es*TABLE)%N].re+300,points[(es*TABLE)%N].im+300);
+            //other operations
+            //ctx.lineTo(points[(es%TABLE)%N].re+300,points[(es%TABLE)%N].im+300);
+            //ctx.lineTo(points[Math.floor(es/TABLE)%N].re+300,points[Math.floor(es/TABLE)%N].im+300);
+            //ctx.lineTo(points[Math.pow(es,TABLE)%N].re+300,points[Math.pow(es,TABLE)%N].im+300);
+            //ctx.lineTo(points[Math.pow(TABLE,es)%N].re+300,points[Math.pow(TABLE,es)%N].im+300);
+
+            //ctx.lineTo(points[(Math.pow(es,TABLE)*es)%N].re+300,points[(Math.pow(es,TABLE)*es)%N].im+300);
+
             ctx.stroke();
 
         console.log(points[es].re+" "+points[es].im+" "+points[es].arg());
