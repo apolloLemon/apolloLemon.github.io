@@ -1,0 +1,17 @@
+.grid_12 {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(auto-fill,250px);
+}
+
+.grid_6 {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(auto-fill,125px);
+}
+
+@media only screen and (max-width: 768px) {
+	.rsz_6-768 {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}

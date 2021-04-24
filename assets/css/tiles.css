@@ -1,4 +1,4 @@
-#tiles {
+.fluid_tiles {
 	display: grid;
 	grid-template-columns: repeat(auto-fill,minmax(125px, 1fr));
 }
